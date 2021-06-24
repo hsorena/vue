@@ -6,11 +6,26 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Vue training</title>
+
+    <style type="text/css">
+
+        .color-red {color: red;}
+
+        .is-loading{background: red;}
+    </style>
 </head>
 <body>
 <div id="root">
+<!--    binding method 1-->
+    <button v-bind:title="title">Hover over me</button>
+<!--    binding method 2-->
+    <button :title="title">Hover over me</button>
 
-
+<!--    class binding-->
+    <h1 :class="className">Hello world</h1>
+    <button :class="{ 'is-loading':false }">Click Me</button>
+    <button :class="{ 'is-loading':true }">Click Me</button>
+    <button :class="{ 'is-loading':isLoading }" @click="toggleClass">Click Me</button>
 </div>
 
 <script src="vue.min.js" type="text/javascript"></script>
@@ -19,7 +34,15 @@
     var app = new Vue({
         el: '#root',
         data: {
-
+            title : 'Now the title is being set through JavaScript',
+            className: 'color-red',
+            isLoading:false
+        }
+        ,
+        methods:{
+            toggleClass(){
+                this.isLoading = true;
+            }
         }
 
     });
