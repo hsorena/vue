@@ -9,7 +9,9 @@
 </head>
 <body>
 <div id="app">
-    <h1>{{ msg }}</h1>
+    <input type="text" id="input" v-model="message">
+
+    <p> the value of input : {{ message }} </p>
 
 </div>
 
@@ -19,7 +21,7 @@
     let vm = new Vue({
         el: '#app',
         data: {
-            msg: 'Hello world'
+            message: 'Hello world'
         }
     });
 </script>
