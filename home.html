@@ -8,22 +8,38 @@
     <title>Vue training</title>
 </head>
 <body>
-<div id="app">
-    <input type="text" id="input" v-model="message">
-
-    <p> the value of input : {{ message }} </p>
+<div id="root">
+    <ul>
+<!--        <li v-for="name in names">{{ name }}</li>-->
+        <li v-for="name in names" v-text="name"></li>
+    </ul>
+    <input type="text" id="input">
+    <button id="button">add name</button>
 
 </div>
 
 <script src="vue.min.js" type="text/javascript"></script>
 
 <script>
-    let vm = new Vue({
-        el: '#app',
+    let app = new Vue({
+        el: '#root',
         data: {
-            message: 'Hello world'
-        }
+            names :['hasan', 'hosein', 'fati', 'majid']
+        },
+
     });
+
+    //method 1
+    document.querySelector('#button').addEventListener('click' , () =>{
+        let name = document.querySelector('#input');
+        app.names.push(name.value);
+        name.value='';
+
+    })
+
+
+
+    Vue.config.devtools = true // add this line for enable devtools
 </script>
 
 
