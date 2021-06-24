@@ -9,17 +9,7 @@
 </head>
 <body>
 <div id="root">
-    <ul>
-<!--        <li v-for="name in names">{{ name }}</li>-->
-        <li v-for="name in names" v-text="name"></li>
-    </ul>
-    <input type="text" id="input" v-model="newName">
 
-
-    <!--    new method-->
-    <button @click="newAddName">add name with new method</button>
-    <!--    old method-->
-    <button v-on:click="addName">add name with old method</button>
 
 </div>
 
@@ -29,20 +19,7 @@
     var app = new Vue({
         el: '#root',
         data: {
-            newName: '',
-            names :['hasan', 'hosein', 'fati', 'majid']
-        },
 
-        methods: {
-            addName() {
-                this.names.push(this.newName);
-                this.newName ='';
-            },
-
-            newAddName() {
-                this.names.push(this.newName);
-                this.newName ='';
-            }
         }
 
     });
