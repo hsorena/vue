@@ -13,31 +13,39 @@
 <!--        <li v-for="name in names">{{ name }}</li>-->
         <li v-for="name in names" v-text="name"></li>
     </ul>
-    <input type="text" id="input">
-    <button id="button">add name</button>
+    <input type="text" id="input" v-model="newName">
+
+
+    <!--    new method-->
+    <button @click="newAddName">add name with new method</button>
+    <!--    old method-->
+    <button v-on:click="addName">add name with old method</button>
 
 </div>
 
 <script src="vue.min.js" type="text/javascript"></script>
 
 <script>
-    let app = new Vue({
+    var app = new Vue({
         el: '#root',
         data: {
+            newName: '',
             names :['hasan', 'hosein', 'fati', 'majid']
         },
 
+        methods: {
+            addName() {
+                this.names.push(this.newName);
+                this.newName ='';
+            },
+
+            newAddName() {
+                this.names.push(this.newName);
+                this.newName ='';
+            }
+        }
+
     });
-
-    //method 1
-    document.querySelector('#button').addEventListener('click' , () =>{
-        let name = document.querySelector('#input');
-        app.names.push(name.value);
-        name.value='';
-
-    })
-
-
 
     Vue.config.devtools = true // add this line for enable devtools
 </script>
