@@ -10,21 +10,15 @@
 </head>
 <body>
 <div id="root">
-
-
-<script src="vue.min.js" type="text/javascript"></script>
-
-<script>
-    var app = new Vue({
-        el: '#root',
-        data: {
-            message:'Hello world'
-        }
-    });
-
-    Vue.config.devtools = true // add this line for enable devtools
-</script>
-
-
+    <task>Go to store</task>
+    <task>Clean room</task>
+    <task>buy cig</task>
+    <br><br><br>
+    <h1>Component within component</h1>
+    <task-list></task-list>
+</div>
+    <script src="vue.min.js" type="text/javascript"></script>
+    <script>Vue.config.devtools = true // add this line for enable devtools</script>
+    <script src="main.js"></script>
 </body>
 </html>
