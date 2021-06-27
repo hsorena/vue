@@ -5,11 +5,33 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="bulma.css"></link>
     <title>Vue training</title>
 
 </head>
 <body>
-<div id="root">
+<div id="root" class="container">
+
+    <message title="Hello world" body="Lorem ipsum dolar sit amet."></message>
+
+    <button @click="modalShow = true">show modal</button>
+
+    <modal v-show="modalShow" @close="modalShow = false"></modal>
+
+    <tabs>
+        <tab name="About us">
+            <h1>Here is the content for the about us</h1>
+        </tab>
+
+        <tab name="About our Culture">
+            <h1>Here is the content for the about our Culture</h1>
+        </tab>
+
+        <tab name="About our vision">
+            <h1>Here is the content for the about our vision</h1>
+        </tab>
+    </tabs>
+
 
 </div>
     <script src="vue.min.js" type="text/javascript"></script>
